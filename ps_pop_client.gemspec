@@ -8,8 +8,9 @@ Gem::Specification.new do |s|
   s.description = "Ruby Client to interact with CBSA api as described on PeerStreet take home assignment."
   s.authors     = ["Steven Chow"]
   s.email       = 'stevenwchow@gmail.com'
-  s.files       = ["lib"]
-  s.homepage    = 'http://github.com/schow6272003/ps_gem'
+  s.files       = 'git ls-files'.split("\n")
+  s.require_paths = ['lib']
+  s.homepage    = 'https://github.com/schow6272003/ps_gem'
   s.license       = 'MIT'
   s.add_development_dependency 'rspec', '~> 3'
 end
