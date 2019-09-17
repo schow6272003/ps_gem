@@ -1,3 +1,3 @@
-module PopClient
-    VERSION = VERSION = '0.1.0'
+module PSClient
+    VERSION = '0.0.0'
 end
