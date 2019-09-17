@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Steven Chow"]
   s.email       = 'stevenwchow@gmail.com'
   s.files       = ["lib"]
-  s.homepage    = 'https://github.com/schow6272003/ps_gem'
+  s.homepage    = 'http://github.com/schow6272003/ps_gem'
   s.license       = 'MIT'
   s.add_development_dependency 'rspec', '~> 3'
 end
