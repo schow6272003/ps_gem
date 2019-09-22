@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
   s.homepage    = 'https://github.com/schow6272003/ps_gem'
   s.license       = 'MIT'
-  s.add_development_dependency 'rspec', '~> 3'
+  s.add_dependency 'json'
+  s.add_development_dependency 'rspec'
 end

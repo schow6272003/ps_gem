@@ -1,6 +1,6 @@
 module PSClient
     require 'json'
-    
+    require_relative 'tools/error_util'
     class Response
         def initialize(response= {})
             @response=response
@@ -11,7 +11,7 @@ module PSClient
         end 
 
         def parse_error
-            { status: @response.code,  message: @response.message}
+            ErrorUtil.parse_response(@response);
         end 
     end
 end 
