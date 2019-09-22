@@ -9,4 +9,8 @@ module RequestUtil
    raise PSClient::Error.new("Bad Request", 400)
   end 
  end 
+ def self.parse_to_symbol(req)
+   raise PSClient::Error.new("Bad Request", 400) if !req.kind_of?(Hash) 
+   Hash[req.map{|(k,v)| [k.to_sym,v]}]
+ end 
 end  

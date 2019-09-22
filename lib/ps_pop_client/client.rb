@@ -1,5 +1,5 @@
-
 DEFAULT_BASE_URI = 'https://pstreet-api.herokuapp.com'
+
 module PSClient
   require_relative 'tools/request_util'
   class Api < BaseApi
@@ -9,11 +9,13 @@ module PSClient
 
     def find(req={}) 
       begin
-        check_request(req)
-        uri = encode_uri(req)
+        parsed_req = parse_req_to_symbols(req)
+        check_request(parsed_req)
+        uri = encode_uri(parsed_req)
         response = request(uri)
         check_status(response)
-        return Response.new(response).parse
+        fitlered_response = filter_records(parsed_req, response)
+        return Response.new(fitlered_response).parse
       rescue => e
         return Response.new(e).parse_error
       end
@@ -25,6 +27,13 @@ module PSClient
        raise Error.new(response.message, response.code)
       end
       
+      def filter_records(req, response) 
+        ResponseUtil.filter_records(req, response)
+      end 
+      
+      def parse_req_to_symbols(req)
+        RequestUtil.parse_to_symbol(req)
+      end 
       def check_request(req)
         RequestUtil.validate_find_request(req)
       end 
