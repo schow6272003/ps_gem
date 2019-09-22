@@ -19,6 +19,5 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/schow6272003/ps_gem'
   s.license       = 'MIT'
   s.add_dependency 'json'
-  s.add_development_dependency 'rspec', 
-  spec.add_development_dependency 'webmock'
+  s.add_development_dependency 'rspec'
 end
