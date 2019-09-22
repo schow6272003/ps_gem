@@ -9,7 +9,7 @@ describe PSClient::Api do
     subject {@client.find(req)}
 
     context "when valid request params" do 
-      let(:req) { { :cbsa_ids => [11260] }} 
+      let(:req) { { "cbsa_ids" => [11260] }} 
     
       it "expects to return with 200 status code" do
         expect(subject[:status]).to eq "200"
@@ -89,7 +89,6 @@ describe PSClient::Api do
     context "when request is invalid"  do 
       let(:req) { {}}
       it "expect to response http status to be" do 
-        p subject
         expect(subject[:status]).to eq 400
       end
     end
