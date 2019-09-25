@@ -6,6 +6,7 @@ module PSClient
       def initialize(response= {})
         @response=response
       end 
+      
       def parse
         res_body = JSON.parse(@response.body)
         { status: @response.code.to_i , data:res_body["data"]}

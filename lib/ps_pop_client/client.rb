@@ -23,8 +23,8 @@ module PSClient
 
     private      
       def check_status(response)
-       return if (200..299).cover?(response.code.to_i)
-       raise Error.new(response.message, response.code)
+        return if (200..299).cover?(response.code.to_i)
+        raise Error.new(response.message, response.code)
       end
       
       def filter_records(req, response) 
