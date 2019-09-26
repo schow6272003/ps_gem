@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PSClient::Api do
   before do
-    @client = described_class.new({ :base_uri => "http://localhost:8000" })
+    @client = described_class.new
   end  
 
   describe "#find"  do
