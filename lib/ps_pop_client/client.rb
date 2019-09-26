@@ -1,9 +1,9 @@
-DEFAULT_BASE_URI = 'https://pstreet-api.herokuapp.com'
+DEFAULT_URI = 'https://pstreet-api.herokuapp.com'
 
 module PSClient
   require_relative 'tools/request_util'
   class Api < BaseApi
-    def initialize(args={ :base_uri => DEFAULT_BASE_URI })
+    def initialize(args={ :base_uri => DEFAULT_URI })
       super(args)
     end 
 
@@ -23,8 +23,8 @@ module PSClient
 
     private      
       def check_status(response)
-       return if (200..299).cover?(response.code.to_i)
-       raise Error.new(response.message, response.code)
+        return if (200..299).cover?(response.code.to_i)
+        raise Error.new(response.message, response.code)
       end
       
       def filter_records(req, response) 
@@ -41,7 +41,7 @@ module PSClient
         cbsa_ids_uri = (req.keys.include?(:cbsa_ids) && req[:cbsa_ids].kind_of?(Array)) ? req[:cbsa_ids].inject("") { |s, a| s + "cbsa_ids[]=" + a.to_s + "&" } : ""
         zipcodes_uri = (req.keys.include?(:zip_codes) && req[:zip_codes].kind_of?(Array)) ? req[:zip_codes].inject("") { |s, a| s + "zip_codes[]=" + a.to_s + "&" } : ""
         name = (req.keys.include?(:name) && req[:name].kind_of?(String)) ? "name=" + req[:name] : ""
-        "/api/cbsa?" + cbsa_ids_uri + zipcodes_uri + name
+        "/api/v1/cbsa/find?" + cbsa_ids_uri + zipcodes_uri + name
       end 
   end
 end 

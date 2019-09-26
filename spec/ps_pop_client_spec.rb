@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PSClient::Api do
   before do
-    @client = described_class.new({ :base_uri => "http://localhost:8000" })
+    @client = described_class.new
   end  
 
   describe "#find"  do
@@ -19,7 +19,7 @@ describe PSClient::Api do
       end
       
       it "expects cbsa code to be 11260" do
-       expect(subject[:data]["records"][0]["cbsa_id"]).to eq 11260
+        expect(subject[:data]["records"][0]["cbsa_id"]).to eq 11260
       end 
 
       it "expects to include zipcodes" do
@@ -68,6 +68,7 @@ describe PSClient::Api do
       it "expects to return 2 record" do
         expect(subject[:data].count).to eq 2
       end
+
       it "expects to include 'Burlington' on msa name" do
         expect(subject[:data]["records"][0]["name"]).to include("Burlington")
       end
@@ -81,12 +82,13 @@ describe PSClient::Api do
       end
       
       it "expects to return 0 records" do
-         expect(subject[:data]["records"].count).to eq 0
+        expect(subject[:data]["records"].count).to eq 0
       end 
     end
 
     context "when request is invalid"  do 
       let(:req) { {}}
+      
       it "expect to response http status to be" do 
         expect(subject[:status]).to eq 400
       end
