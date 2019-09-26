@@ -1,7 +1,7 @@
 DEFAULT_URI = 'https://pstreet-api.herokuapp.com'
 
 module PSClient
-  require_relative 'tools/request_util'
+  require_relative './tools/request_util'
   class Api < BaseApi
     def initialize(args={ :base_uri => DEFAULT_URI })
       super(args)
