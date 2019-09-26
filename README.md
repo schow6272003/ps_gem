@@ -6,16 +6,16 @@ https://pstreet-api.herokuapp.com/api/v1/cbsa/find?cbsa_ids[]=15540&cbsa_ids[]=1
 1. Rails App
 #### Add the following line to Gemfile 
 ```
-gem 'ps_pop_client',  :git => 'https://github.com/schow6272003/ps_gem.git'
+gem 'ps_pop_client'
 ```
 
 #### Execute 'bundle'
 ```
 bundle install
 ```
-2. Stand Alone
+2. Cli
 ```
-gem  install 'ps_pop_client',  :git => 'https://github.com/schow6272003/ps_gem.git'
+gem install 'ps_pop_client'
 ```
 
 ## Usage

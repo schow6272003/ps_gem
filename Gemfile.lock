@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ps_pop_client (0.0.0)
+    ps_pop_client (0.1.1)
       json
 
 GEM
